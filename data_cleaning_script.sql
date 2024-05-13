@@ -1,7 +1,7 @@
 SELECT 
     *
 FROM
-    layoffs_data;
+    portfolioproject.layoffs_data;
 
 -- Creating a staging table to safeguard against data loss during processing.
 
