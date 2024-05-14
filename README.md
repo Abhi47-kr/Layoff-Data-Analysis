@@ -6,11 +6,12 @@
 - [DATA SOURCES](#data-sources)
 - [TOOL](#tool)
 - [THE CLEANING PROCESS](#the-cleaning-process)
+- [EXPLORATORY DATA ANALYSIS](#exploratory-data-analysis)
 - [CONCLUSION](#conclusion)
 
 ## PROJECT OVERVIEW
 
-This project involves cleaning raw data in MySQL using various MySQL functions. The cleaned and structured data can than be used for future analysis.
+This project focuses on cleaning raw data within MySQL using different MySQL functions. The objective is to transform the data into a structured format suitable for Exploratory Data Analysis.
 
 ## DATA SOURCES
 
@@ -99,6 +100,10 @@ delete
 from layoffs_staging2
 where Laid_Off_Count is null and percentage is null;
 ```
+
+## EXPLORATORY DATA ANALYSIS
+
+
 
 ## CONCLUSION
 
