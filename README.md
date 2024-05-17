@@ -11,7 +11,7 @@
 
 ## PROJECT OVERVIEW
 
-This project focuses on cleaning raw data within MySQL using different MySQL functions. The objective is to transform the data into a structured format suitable for Exploratory Data Analysis.
+This project focuses on cleaning raw data within MySQL using various MySQL functions. The objective is to transform the data into a structured format suitable for Exploratory Data Analysis (EDA). Data cleaning and EDA are crucial for uncovering insights and making informed decisions based on reliable data.
 
 ## DATA SOURCES
 
@@ -103,9 +103,114 @@ where Laid_Off_Count is null and percentage is null;
 
 ## EXPLORATORY DATA ANALYSIS
 
+Here are key SQL queries used in the EDA process:-
 
+- Industry Distribution:
+
+```sql
+-- Analyzing the distribution of companies across industries.
+SELECT Industry, COUNT(company) AS company_count
+FROM layoffs_staging2
+GROUP BY Industry
+ORDER BY company_count DESC;
+```
+
+- Yearly Trends:
+
+```sql
+-- Tracking the count of companies by year to identify trends over time.
+SELECT YEAR(Date) AS year, COUNT(company) AS company_count
+FROM layoffs_staging2
+GROUP BY year
+ORDER BY year;
+```
+
+- Summary Statistics:
+
+```sql
+-- Generating summary statistics for numerical columns like laid off count, percentage, and funds raised.
+SELECT 
+    COUNT(*) AS total_rows,
+    AVG(Laid_off_count) AS avg_laid_off,
+    MAX(Laid_off_count) AS max_laid_off,
+    MIN(Laid_off_count) AS min_laid_off,
+    AVG(Percentage) AS avg_percentage,
+    MAX(Percentage) AS max_percentage,
+    MIN(Percentage) AS min_percentage,
+    AVG(Funds_raised) AS avg_funds_raised,
+    MAX(Funds_raised) AS max_funds_raised,
+    MIN(Funds_raised) AS min_funds_raised
+FROM layoffs_staging2;
+```
+
+- Top Companies by Layoffs:
+
+```sql
+-- Identifying the top 10 companies with the largest single-day layoffs.
+SELECT company, laid_off_count
+FROM layoffs_staging2
+ORDER BY 2 DESC
+LIMIT 10;
+```
+
+- Total Layoffs by Location:
+
+```sql
+-- Analyzing location-wise total layoffs to identify hotspots.
+SELECT Location_HQ, SUM(laid_off_count) AS total_layoffs
+FROM layoffs_staging2
+GROUP BY Location_HQ
+ORDER BY total_layoffs DESC
+LIMIT 10;
+```
+
+- Rolling Total of Layoffs:
+
+```sql
+-- Calculating the rolling total of layoffs per month for trend analysis.
+WITH months_cte AS (
+    SELECT SUBSTRING(`date`, 1, 7) AS `Months`, SUM(laid_off_count) AS total_layoffs
+    FROM layoffs_staging2
+    GROUP BY `Months`
+    ORDER BY `Months`
+)
+SELECT `Months`, total_layoffs, 
+    SUM(total_layoffs) OVER(ORDER BY `Months` ASC) AS rolling_total_layoffs
+FROM months_cte;
+```
+
+- Industries with Highest Total Layoffs per Year:
+
+```sql
+-- Identifying the industries with the highest total layoffs per year.
+SELECT 
+    industry,
+    YEAR(`date`) AS `year`,
+    SUM(laid_off_count) AS total_layoffs
+FROM
+    layoffs_staging2
+GROUP BY industry, YEAR(`date`)
+ORDER BY total_layoffs DESC;
+
+WITH industry_year AS (
+    SELECT industry, YEAR(`date`) AS `year`, SUM(laid_off_count) AS total_layoffs 
+    FROM layoffs_staging2
+    GROUP BY industry, YEAR(`date`)
+    ORDER BY `year` DESC
+),
+industry_year_rank AS (
+    SELECT industry, `year`, total_layoffs, 
+    DENSE_RANK() OVER(PARTITION BY `year` ORDER BY total_layoffs DESC) AS Ranking
+    FROM industry_year
+)
+SELECT industry, `year`, total_layoffs, Ranking
+FROM industry_year_rank
+WHERE Ranking <= 5;
+```
+
+These are just some of the SQL queries used in the analysis; the full set of queries can be found in the attached SQL query file.
 
 ## CONCLUSION
 
-Through thorough cleaning steps, the data is now made reliable for detailed analysis, ensuring accurate insights.
+By thoroughly cleaning the data, we ensured its reliability for an in-depth EDA process. This analysis provided valuable insights into layoffs across different dimensions, including industry, geography, and time.
   
