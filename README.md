@@ -103,7 +103,7 @@ where Laid_Off_Count is null and percentage is null;
 
 ## EXPLORATORY DATA ANALYSIS
 
-Here are key SQL queries used in the EDA process:-
+Here are some key SQL queries used in the EDA process:-
 
 - Industry Distribution:
 
@@ -208,7 +208,7 @@ FROM industry_year_rank
 WHERE Ranking <= 5;
 ```
 
-These are just some of the SQL queries used in the analysis; the full set of queries can be found in the attached SQL query file.
+These are just some of the SQL queries used in the analysis; the full set of queries can be found in the attached EDA SQL query script file.
 
 ## CONCLUSION
 
