@@ -1,13 +1,16 @@
-# DATA_CLEANING & EDA_in_MySQL
+# TRANSFORMING LAYOFF DATA FOR INSIGHTFUL ANALYSIS
+
+![photo_2024-05-11_12-15-23](https://github.com/Abhi47-kr/Data-Cleaning-and-EDA-in-MySQL/assets/168676103/3bddc7d6-53fe-4230-be76-025d04bbd04c)
+
 
 ## TABLE OF CONTENTS
 
-- [PROJECT OVERVIEW](#project-overview)
-- [DATA SOURCES](#data-sources)
-- [TOOL](#tool)
-- [THE CLEANING PROCESS](#the-cleaning-process)
-- [EXPLORATORY DATA ANALYSIS](#exploratory-data-analysis)
-- [CONCLUSION](#conclusion)
+- [Project Overview](#project-overview)
+- [Data Sources](#data-sources)
+- [Tool Used](#tool-used)
+- [The Transformation Process](#the-transformation-process)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Conclusion](#conclusion)
 
 ## PROJECT OVERVIEW
 
@@ -15,13 +18,13 @@ This project focuses on cleaning raw data within MySQL using various MySQL funct
 
 ## DATA SOURCES
 
-The dataset used in the project is the *[Layoffs Dataset 2024](https://www.kaggle.com/datasets/theakhilb/layoffs-data-2022)* sourced from Kaggle. The dataset encompasses diverse industry specific information on layoffs comprising of 3577 rows and 12 columns. 
+The dataset used in the project is the *[Layoffs Dataset 2024](https://www.kaggle.com/datasets/theakhilb/layoffs-data-2022)* sourced from Kaggle. The dataset is in CSV format encompassing diverse industry specific information on layoffs comprising of 3577 rows and 12 columns. The raw version of the data can be viewed [here](https://github.com/Abhi47-kr/Data-Cleaning-and-EDA-in-MySQL/blob/a2f02056d171846870d74ec49851a70908f60b39/layoffs_data.csv)
 
-## TOOL
+## TOOL USED
 
 - MySQL
 
-## THE CLEANING PROCESS
+## THE TRANSFORMATION PROCESS
 
 - Creating a Staging Table:
 
@@ -100,6 +103,7 @@ delete
 from layoffs_staging2
 where Laid_Off_Count is null and percentage is null;
 ```
+[View Cleaning Script](https://github.com/Abhi47-kr/Data-Cleaning-and-EDA-in-MySQL/blob/a2f02056d171846870d74ec49851a70908f60b39/data_cleaning_script.sql) | [View Cleaned CSV data](https://github.com/Abhi47-kr/Data-Cleaning-and-EDA-in-MySQL/blob/a2f02056d171846870d74ec49851a70908f60b39/layoffs_data_2024_cleaned.csv)
 
 ## EXPLORATORY DATA ANALYSIS
 
@@ -208,7 +212,7 @@ FROM industry_year_rank
 WHERE Ranking <= 5;
 ```
 
-These are just some of the SQL queries used in the analysis; the full set of queries can be found in the attached EDA SQL query script file.
+These are just some of the SQL queries used in the analysis; the full set of queries can be found in the attached EDA SQL query script file [here](https://github.com/Abhi47-kr/Data-Cleaning-and-EDA-in-MySQL/blob/a2f02056d171846870d74ec49851a70908f60b39/EDA_query_script.sql)
 
 ## CONCLUSION
 
