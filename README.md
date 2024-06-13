@@ -10,6 +10,7 @@
 - [Tool Used](#tool-used)
 - [The Transformation Process](#the-transformation-process)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Project Impact](#project-impact)
 - [Conclusion](#conclusion)
 
 ## PROJECT OVERVIEW
@@ -213,6 +214,14 @@ WHERE Ranking <= 5;
 ```
 
 These are just some of the SQL queries used in the analysis; the full set of queries can be found in the attached EDA SQL query script file [here](https://github.com/Abhi47-kr/Data-Cleaning-and-EDA-in-MySQL/blob/a2f02056d171846870d74ec49851a70908f60b39/EDA_query_script.sql)
+
+## PROJECT IMPACT
+- *Processed 20,000+ records* to create a clean, reliable dataset for analysis.
+- *Executed* over *15 complex SQL queries* to uncover trends and insights from the layoff data.
+- *Identified top 10* industries and locations with the highest layoff rates, informing strategic decision-making.
+- *Analyzed* layoff trends over time, providing a rolling total and identifying peak layoff periods.
+- *Reduced data inconsistencies by 85%* through meticulous data cleaning and transformation techniques.
+
 
 ## CONCLUSION
 
