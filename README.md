@@ -1,6 +1,7 @@
 # TRANSFORMING LAYOFF DATA FOR INSIGHTFUL ANALYSIS
 
-![photo_2024-05-11_12-15-23](https://github.com/Abhi47-kr/Data-Cleaning-and-EDA-in-MySQL/assets/168676103/3bddc7d6-53fe-4230-be76-025d04bbd04c)
+
+![layoff](https://github.com/Abhi47-kr/Transforming-Layoff-Data-for-Insightful-Analysis/assets/168676103/6c791cb7-8c51-47c3-926c-fc6bdb1c4dd5)
 
 
 ## TABLE OF CONTENTS
