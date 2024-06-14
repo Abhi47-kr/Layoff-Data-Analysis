@@ -1,4 +1,4 @@
-# TRANSFORMING LAYOFF DATA FOR INSIGHTFUL ANALYSIS
+# LAYOFF DATA ANALYSIS
 
 
 ![layoff](https://github.com/Abhi47-kr/Transforming-Layoff-Data-for-Insightful-Analysis/assets/168676103/6c791cb7-8c51-47c3-926c-fc6bdb1c4dd5)
